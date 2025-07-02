@@ -44,7 +44,7 @@
     totalEl.textContent = total.toFixed(2);
 
     function checkout() {
-      alert(`Thank you for your order! Total is $${totalEl.textContent}`);
+      alert(`Thank you for your order! Total is R${totalEl.textContent}`);
       localStorage.removeItem('cart');
       location.reload();
     }
