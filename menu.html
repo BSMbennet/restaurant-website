@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu - My Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>My Restaurant</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="menu">
+      <h2>Our Menu</h2>
+      <div class="food-grid">
+        <!-- Chicken Menu -->
+        <div class="food-item" data-name="Half Chicken with Pap" data-price="65">
+          <img src="images/half-chicken.jpeg" alt="Half Chicken with Pap">
+          <h3>Half Chicken with Pap</h3>
+          <p>R65</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="food-item" data-name="Full Chicken" data-price="110">
+          <img src="images/full.jpeg" alt="Full Chicken">
+          <h3>Full Chicken</h3>
+          <p>R110</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="food-item" data-name="Kota Chicken" data-price="35">
+          <img src="images/kota.jpeg" alt="Kota Chicken">
+          <h3>Kota Chicken</h3>
+          <p>R35</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <!-- Drinks -->
+        <div class="food-item" data-name="Pepsi" data-price="12">
+          <img src="images/pepsi.jpeg" alt="Pepsi">
+          <h3>Pepsi</h3>
+          <p>R12</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="food-item" data-name="Coca-Cola" data-price="13">
+          <img src="images/cocacola.jpeg" alt="Coca-Cola">
+          <h3>Coca-Cola</h3>
+          <p>13</p>
+          <button>Add to Cart</button>
+        </div>
+        <div class="food-item" data-name="Fanta" data-price="15">
+          <img src="images/fanta.jpeg" alt="Fanta">
+          <h3>Fanta</h3>
+          <p>R15</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.querySelectorAll('.food-item button').forEach(button => {
+      button.addEventListener('click', e => {
+        const item = e.target.closest('.food-item');
+        const name = item.dataset.name;
+        const price = parseFloat(item.dataset.price);
+        cart.push({ name, price });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+      });
+    });
+  </script>
+</body>
+</html>
