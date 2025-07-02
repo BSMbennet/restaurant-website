@@ -4,7 +4,7 @@ body {
   padding: 0;
   background: #f9f9f9;
   color: #333;
-   background-image: url("images/table.jpeg");
+   background-image: url("table.jpeg");
     background-attachment: fixed;
     background-size: cover;
 }
